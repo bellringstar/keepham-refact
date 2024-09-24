@@ -10,7 +10,7 @@ import java.util.HashMap;
 @RequiredArgsConstructor
 public class BootpayService {
 
-    private final Bootpay bootpay = new Bootpay("부트페이의 REST API 키", "부트페이의 Private Key);
+    private final Bootpay bootpay = new Bootpay("부트페이의 REST API 키", "부트페이의 Private Key");
 
     //토큰 발급
     public HashMap<String, Object> goGetToken() {

@@ -1,3 +1,5 @@
+# application.yaml
+
 spring:
   autoconfigure:
     exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
@@ -10,18 +12,36 @@ spring:
     hibernate:
       ddl-auto: update
   datasource:
-    url: mysqlURL
+    url: ${MYSQL_URL}
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: 사용자이름
-    password: 암호
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
   data:
     mongodb:
-      uri: mongoURL
-
+      uri: ${MONGO_URL}
   security:
     user:
-      name: 이름
-      password: 암호
+      name: ${SPRING_SECURITY_USER_NAME}
+      password: ${SPRING_SECURITY_USER_PASSWORD}
+
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    chat:
+      topic: ${KAFKA_CHAT_TOPIC}
+      group-id: ${KAFKA_CHAT_GROUP_ID}
+    box-open:
+      topic: ${KAFKA_BOX_OPEN_TOPIC}
+      group-id: ${KAFKA_BOX_OPEN_GROUP_ID}
+    box-arrive:
+      topic: ${KAFKA_BOX_ARRIVE_TOPIC}
+      group-id: ${KAFKA_BOX_ARRIVE_GROUP_ID}
+    box-keypad:
+      topic: ${KAFKA_BOX_KEYPAD_TOPIC}
+      gorup-id: ${KAFKA_BOX_KEYPAD_GROUP_ID}
+
+redis:
+  host: ${REDIS_HOST}
+  port: ${REDIS_PORT}
 
 springdoc:
   packages-to-scan: com.ssafy.keepham

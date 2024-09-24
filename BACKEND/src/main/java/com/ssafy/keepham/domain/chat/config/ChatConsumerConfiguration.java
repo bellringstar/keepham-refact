@@ -18,12 +18,11 @@ import java.util.Map;
 
 @EnableKafka
 @Configuration
-@PropertySource("classpath:kafka.properties")
 public class ChatConsumerConfiguration {
 
-    @Value("${kafka.bootstrap-servers}")
+    @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServer;
-    @Value("${kafka.chat.group-id}")
+    @Value("${spring.kafka.chat.group-id}")
     private String groupId;
 
     @Bean

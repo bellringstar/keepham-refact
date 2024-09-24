@@ -18,10 +18,9 @@ import java.util.Map;
 
 @EnableKafka
 @Configuration
-@PropertySource("classpath:kafka.properties")
 public class ChatProducerConfiguration {
 
-    @Value("${kafka.bootstrap-servers}")
+    @Value("${spring.kafka.bootstrap-servers}")
     private String bootstrapServer;
 
 

@@ -39,7 +39,6 @@ import java.util.concurrent.TimeUnit;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-@PropertySource("classpath:kafka.properties")
 public class ChatRoomManager {
     private final UserRepository userRepository;
 

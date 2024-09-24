@@ -1,6 +1,7 @@
 package com.ssafy.keepham.config.redis;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -13,14 +14,13 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.util.Set;
 
 @Configuration
-@PropertySource("classpath:redis.yaml")
 @RequiredArgsConstructor
 @EnableRedisRepositories
 public class RedisConfig {
 
-    @Value("${spring.cache.redis.host}")
+    @Value("${redis.host}")
     private String host;
-    @Value("${spring.cache.redis.port}")
+    @Value("${redis.port}")
     private int port;
 
     @Bean
