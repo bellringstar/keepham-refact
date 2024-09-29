@@ -1,9 +1,9 @@
 package com.ssafy.keepham.domain.chatroom.entity.enums;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
-public enum RoomUserStatus {
+@RequiredArgsConstructor
+public enum ChatRoomUserStatus {
 
     NORMAL("정상"),
     KICKED("추방당한 유저"),

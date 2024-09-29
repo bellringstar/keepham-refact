@@ -12,8 +12,16 @@ import jakarta.persistence.*;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -39,19 +47,16 @@ public class ChatRoom extends BaseEntity {
     @Column(nullable = false)
     private ChatRoomStatus status;
 
-    @Column(nullable = false)
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "store_id")
+    @JoinColumn(name = "store_id", nullable = false)
     private Store store;
 
-    @Column(nullable = false)
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "box_id")
+    @JoinColumn(name = "box_id", nullable = false)
     private Box box;
 
-    @Column(nullable = false)
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_user_id")
+    @JoinColumn(name = "user_user_id", nullable = false)
     private User superUser;
 
     private int extensionCount;
@@ -68,11 +73,14 @@ public class ChatRoom extends BaseEntity {
     @Column(length = 16, nullable = false)
     private String salt;
 
+    @Column(nullable = true)
     private LocalDateTime closedAt;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private RoomPhase phase;
+
+    private boolean isDeleted = false;
 
     @Builder
     private ChatRoom(String title, Store store, Box box, int maxPeopleNumber, User superUser, boolean locked, String password) {

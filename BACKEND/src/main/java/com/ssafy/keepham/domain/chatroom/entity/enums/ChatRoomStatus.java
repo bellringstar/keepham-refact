@@ -1,8 +1,8 @@
 package com.ssafy.keepham.domain.chatroom.entity.enums;
 
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum ChatRoomStatus {
 
     OPEN("진행중"),
